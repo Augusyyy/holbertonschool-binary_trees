@@ -91,7 +91,7 @@ int heap_is_complete(const binary_tree_t *tree)
 				0, &is_left_finish));
 }
 /**
- * check_parent - checks if parent has a greater value than its childs
+ * check_heap - checks if parent has a greater value than its childs
  *
  * @tree: pointer to the node
  * Return: 1 if parent has a greater value, 0 otherwise
