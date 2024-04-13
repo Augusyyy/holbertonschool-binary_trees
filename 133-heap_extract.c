@@ -122,7 +122,7 @@ heap_t *swap_head(heap_t *head, heap_t *node)
 }
 
 /**
- * perc_down - move head into correct position
+ * move_down - move head into correct position
  * @node: pointer to head
  * Return: pointer to head of tree
  */
