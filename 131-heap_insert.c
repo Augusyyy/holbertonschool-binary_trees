@@ -77,7 +77,7 @@ char *convert(unsigned long int num, int base, int lowercase)
 }
 
 /**
- * binary_tree_size_for_insert - measures the size of a binary tree
+ * heap_size - measures the size of a binary tree
  * @tree: input binary tree
  * Return: number of descendant child nodes
  */

@@ -105,19 +105,20 @@ size_t binary_tree_size_for_heap_extract(const binary_tree_t *tree)
  */
 heap_t *swap_head(heap_t *head, heap_t *node)
 {
-    if (node->parent->left == node)
-    {
-        node->parent->left = NULL;
-    } else
-        node->parent->right = NULL;
-    node->parent = NULL;
-    node->left = head->left;
-    node->right = head->right;
-    if (head->left)
-        head->left->parent = node;
-    if (head->right)
-        head->right->parent = node;
-    return (head);
+	if (node->parent->left == node)
+	{
+		node->parent->left = NULL;
+	}
+	else
+		node->parent->right = NULL;
+	node->parent = NULL;
+	node->left = head->left;
+	node->right = head->right;
+	if (head->left)
+		head->left->parent = node;
+	if (head->right)
+		head->right->parent = node;
+	return (head);
 }
 
 /**
@@ -127,26 +128,26 @@ heap_t *swap_head(heap_t *head, heap_t *node)
  */
 heap_t *move_down(heap_t *node)
 {
-    int max;
-    heap_t *next = node;
+	int max;
+	heap_t *next = node;
 
-    if (!node)
-        return (NULL);
-    max = node->n;
-    if (node->left)
-        max = MAX(node->left->n, max);
-    if (node->right)
-        max = MAX(node->right->n, max);
-    if (node->left && max == node->left->n)
-        next = node->left;
-    else if (node->right && max == node->right->n)
-        next = node->right;
-    if (next != node)
-    {
-        swap_for_heap_extract(node, next);
-        move_down(node);
-    }
-    return (next);
+	if (!node)
+		return (NULL);
+	max = node->n;
+	if (node->left)
+		max = MAX(node->left->n, max);
+	if (node->right)
+		max = MAX(node->right->n, max);
+	if (node->left && max == node->left->n)
+		next = node->left;
+	else if (node->right && max == node->right->n)
+		next = node->right;
+	if (next != node)
+	{
+		swap_for_heap_extract(node, next);
+		move_down(node);
+	}
+	return (next);
 }
 
 /**
@@ -156,44 +157,44 @@ heap_t *move_down(heap_t *node)
  */
 int heap_extract(heap_t **root)
 {
-    size_t size, i;
-    char *binary, c, buffer[50];
-    int res;
-    heap_t *tmp, *head;
+	size_t size, i;
+	char *binary, c, buffer[50];
+	int res;
+	heap_t *tmp, *head;
 
-    if (!root || !*root)
-        return (0);
-    SETUP_NODE_BLOC;
-    if (size == 1)
-    {
-        FREE_NODE_BLOC;
-        return (res);
-    }
-    do {
-        CONVERT_LOOP;
-    } while (size);
+	if (!root || !*root)
+		return (0);
+	SETUP_NODE_BLOC;
+	if (size == 1)
+	{
+		FREE_NODE_BLOC;
+		return (res);
+	}
+	do {
+		CONVERT_LOOP;
+	} while (size);
 
-    for (i = 1; i < strlen(binary); i++)
-    {
-        c = binary[i];
-        if (i == strlen(binary) - 1)
-        {
-            if (c == '1')
-            {
-                tmp = tmp->right;
-                break;
-            }
-            else if (c == '0')
-            {
-                tmp = tmp->left;
-                break;
-            }
-        }
-        if (c == '1')
-            tmp = tmp->right;
-        else if (c == '0')
-            tmp = tmp->left;
-    }
-    SWAP_HEAD_BLOC;
-    return (res);
+	for (i = 1; i < strlen(binary); i++)
+	{
+		c = binary[i];
+		if (i == strlen(binary) - 1)
+		{
+			if (c == '1')
+			{
+				tmp = tmp->right;
+				break;
+			}
+			else if (c == '0')
+			{
+				tmp = tmp->left;
+				break;
+			}
+		}
+		if (c == '1')
+			tmp = tmp->right;
+		else if (c == '0')
+			tmp = tmp->left;
+	}
+	SWAP_HEAD_BLOC;
+	return (res);
 }
