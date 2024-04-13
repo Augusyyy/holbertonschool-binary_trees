@@ -113,10 +113,12 @@ int check_heap(const binary_tree_t *tree)
  */
 int binary_tree_is_heap(const binary_tree_t *tree)
 {
+	int res;
+
 	if (tree == NULL)
 		return (0);
 
-	int res = heap_is_complete(tree);
+	res = heap_is_complete(tree);
 	if (res == 0)
 		return (0);
 
