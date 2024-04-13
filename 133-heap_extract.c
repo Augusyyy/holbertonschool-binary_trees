@@ -93,7 +93,7 @@ size_t binary_tree_size_for_heap_extract(const binary_tree_t *tree)
 	if (!tree)
 		return (0);
 
-	return (1 + binary_tree_size_for_heap_extract(tree->left) + 
+	return (1 + binary_tree_size_for_heap_extract(tree->left) +
 			binary_tree_size_for_heap_extract(tree->right));
 }
 
