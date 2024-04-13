@@ -67,9 +67,9 @@ int do_complete_recursive_for_is(const binary_tree_t *tree, int depth,
 		return (level == depth ? 1 : 0);
 	if (tree->left == NULL || tree->right == NULL)
 		return (0);
-	left_res = do_complete_recursive_for_is(tree->left, depth, 
+	left_res = do_complete_recursive_for_is(tree->left, depth,
 			level + 1, is_left_finish);
-	right_res = do_complete_recursive_for_is(tree->right, depth, 
+	right_res = do_complete_recursive_for_is(tree->right, depth,
 			level + 1, is_left_finish);
 	return (left_res && right_res);
 }
@@ -87,7 +87,7 @@ int heap_is_complete(const binary_tree_t *tree)
 
 	if (tree == NULL)
 		return (0);
-	return (do_complete_recursive_for_is(tree, heap_height_for_is_heap(tree), 
+	return (do_complete_recursive_for_is(tree, heap_height_for_is_heap(tree),
 				0, &is_left_finish));
 }
 /**
